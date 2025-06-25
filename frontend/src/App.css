@@ -1,38 +1,144 @@
-.App {
-    text-align: center;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
-.App-link {
-    color: #61dafb;
+/* Netflix-style hover animations */
+.hover\:scale-105:hover {
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Custom Netflix red */
+.bg-netflix-red {
+  background-color: #E50914;
+}
+
+.text-netflix-red {
+  color: #E50914;
+}
+
+/* Video player styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+}
+
+/* Netflix-style gradient overlays */
+.gradient-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 50%, rgba(0,0,0,0.7) 100%);
+}
+
+.gradient-overlay-horizontal {
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 50%, rgba(0,0,0,0.3) 100%);
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom focus styles */
+button:focus,
+input:focus {
+  outline: 2px solid #E50914;
+  outline-offset: 2px;
+}
+
+/* Netflix-style card hover effects */
+.netflix-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.netflix-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  background: linear-gradient(to right, #E50914 0%, #E50914 50%, #666 50%, #666 100%);
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .text-responsive {
+    font-size: 1.5rem;
+  }
+}
+
+/* Dark theme Netflix styling */
+.netflix-bg {
+  background: linear-gradient(135deg, #0c0c0c 0%, #141414 100%);
+}
+
+/* Content row animations */
+.content-row {
+  will-change: transform;
+}
+
+.content-item {
+  will-change: transform, opacity;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
 }
